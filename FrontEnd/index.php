@@ -14,8 +14,8 @@
       href=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css ">
     <link rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
-
   <body>
     <nav class="navbar navbar-light bg-white  navbar-expand-md ">
       <div class="container">
@@ -27,32 +27,34 @@
         </div>
     </nav>
     <section class="pb-5 pt-5">
-      <div class="container">
-        <h1 class=" text-center fw-bold">Ingresar a Super Alitas</h1>
-        <div class="row">
-          <div class="col-lg-4 text-center col-md-8 ms-auto me-auto">
-            <div class="input-group input-lg mt-4">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"><i
-                    class="fa fa-envelope"></i></span><input type="text"
-                  class="form-control" placeholder="Correo"
-                  aria-label="Correo" aria-describedby="basic-addon1">
-              </div>
-            </div>
-            <div class="input-group input-lg mt-4">
-              <span class="input-group-text" id="basic-addon2"><i
-                  class="fa fa-lock"></i></span><input type="text"
-                class="form-control" id="basic-url" placeholder="Password"
-                aria-describedby="basic-addon2">
-            </div>
-            <div class="send-button mt-5">
-              <a href="#"
-                class="btn btn-primary btn-round w-100 shadow  btn-lg mt-3">Entrar</a>
+  <div class="container">
+    <h1 class="text-center fw-bold">Ingresar a Super Alitas</h1>
+    <div class="row">
+      <form id="login-form">
+        <div class="col-lg-4 text-center col-md-8 ms-auto me-auto">
+          <div class="input-group input-lg mt-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i
+                class="fa fa-envelope"></i></span><input type="text" id="txtcorreo"
+                class="form-control" placeholder="Correo" name="txtcorreo"
+                aria-label="Correo" aria-describedby="basic-addon1">
             </div>
           </div>
+          <div class="input-group input-lg mt-4">
+            <span class="input-group-text" id="basic-addon2"><i
+              class="fa fa-lock"></i></span><input type="password" id="txtpassword"
+              class="form-control" name="password" placeholder="Password"
+              aria-describedby="basic-addon2">
+          </div>
+          <div class="send-button mt-5">
+            <button type="submit" id="login-btn" class="btn btn-primary btn-round w-100 shadow btn-lg mt-3">Entrar</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </form>
+    </div>
+  </div>
+</section>
+
     <section class="fixed-bottom">
       <footer class="pt-4 pb-4 ">
         <div class="container">
@@ -87,13 +89,11 @@
         </div>
       </footer>
     </section>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"></script>
-
-
+      <script src="js/login.js"></script>
   </body>
 
 </html>

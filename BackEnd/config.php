@@ -1,6 +1,6 @@
 <?php
 $dbServer = "localhost";
-$dbUsername = "";
+$dbUsername = "root";
 $dbPassword = "";
 $dbName = "superalitas";
 ?>
