@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-<<<<<<< Updated upstream:FrontEnd/index.php
   <head>
     <meta charset="UTF-8">
     <title>Proyecto Super Alitas</title>
@@ -100,95 +98,4 @@
       crossorigin="anonymous"></script>
       <script src="js/login.js"></script>
   </body>
-=======
-<head>
-  <meta charset="UTF-8">
-  <title>Proyecto Super Alitas</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css ">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- 
-</head>
-
-<body>
-
-  <nav class="navbar navbar-light bg-warning  navbar-expand-md ">
-    <div class="container">
-      <div class="col-2 pl-md-0 text-left">
-        <a href="#">
-          <img src="imagenes/logo.jpg" height="60" alt="image">
-        </a>
-      </div>
-  </nav>
-  <section class="pb-5 pt-5 ">
-
-    <div class="container">
-
-
-      <h1 class=" text-center fw-bold">Ingresar a Super Alitas</h1>
-      <div class="row">
-        <div class="col-lg-4 text-center col-md-8 ms-auto me-auto">
-          <div class="input-group input-lg mt-5">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span><input type="text"
-                class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
-            </div>
-          </div>
-          <div class="input-group input-lg mt-2">
-            <span class="input-group-text" id="basic-addon2"><i class="fa fa-lock"></i></span><input type="text"
-              class="form-control" id="basic-url" placeholder="Password" aria-describedby="basic-addon2">
-          </div>
-          <div class="send-button mt-5">
-            <a href="#" class="btn bg-warning btn-round w-100 shadow  btn-lg mt-3">Entrar</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <section class="fixed-bottom bg-warning">
-    <footer class="pt-5 pb-5 ">
-      <div class="container">
-        <div class="row text-center align-items-center">
-          <div class="col-12 col-sm-6 col-md-4 text-sm-start">
-            <img alt="image" src="imagenes/logo.jpg" height="40">
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0 text-center text-sm-end text-md-center">
-            © 2023-2024 super alitas
-          </div>
-          <div class="col-10 col-md-4 mt-4 mt-md-0 text-center text-md-end">
-            <a href="#">
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>&nbsp;&nbsp;
-            <a href="#">
-              <i class="fab fa-facebook" aria-hidden="true"></i>
-            </a>&nbsp;&nbsp;
-            <a href="#">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>&nbsp;&nbsp;
-            <a href="#">
-              <i class="fab fa-pinterest" aria-hidden="true"></i>
-            </a>&nbsp;&nbsp;
-            <a href="#">
-              <i class="fab fa-google" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </section>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-
-
-</body>
->>>>>>> Stashed changes:FrontEnd/index.html
-
 </html>
