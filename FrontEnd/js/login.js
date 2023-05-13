@@ -21,7 +21,7 @@ $(document).ready(function () {
             text: "Login exitoso.",
             icon: "success"
           }).then(() => {
-            window.location.href = "./dashboard.php";
+            window.location.href = "./Menucliente.html";
           });
         } else if (data.resultado == "ERROR") {
           Swal.fire({
