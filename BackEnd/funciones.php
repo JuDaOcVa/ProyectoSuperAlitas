@@ -1,5 +1,17 @@
 <?php
 require_once 'conexionBd.php';
+require_once 'config.php';
+
+$funcion=$_POST['funcion'];
+switch ($funcion) {
+  case $CONSTANTE_LOGIN:
+    login();
+    break;
+    case $CONSTANTE_REGISTRAR:
+      
+  default:
+    break;
+}
 
 function login() {
   require_once 'conexionBd.php';
@@ -16,7 +28,7 @@ function login() {
       $_SESSION['correo'] = $usuario['correo'];
       $_SESSION['password'] = $usuario['password'];
       $_SESSION['estado'] = $usuario['estado'];
-      $response = array("resultado" => "SUCCESS");
+      $response = array("resultado" => "SUCCESS", "nombre"=>$usuario['nombres']);
     } else {
       $response = array("resultado" => "ERROR", "mensaje" => "Nombre de usuario o contraseña incorrectos");
     }
@@ -24,7 +36,5 @@ function login() {
     echo json_encode($response);
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['correo']) && isset($_POST['password'])) {
-  login();
-}
+
 ?>

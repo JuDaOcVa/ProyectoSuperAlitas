@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $("#login-btn").click(function () {
-    console.log("ENTRA click login");
     event.preventDefault();
     var correo = $("#txtcorreo").val();
     var password = $("#txtpassword").val();
@@ -8,6 +7,7 @@ $(document).ready(function () {
       url: "../BackEnd/funciones.php",
       method: "POST",
       data: {
+        funcion:'login',
         correo: correo,
         password: password,
       },
@@ -16,11 +16,19 @@ $(document).ready(function () {
       },
       success: function (data) {
         if (data.resultado == "SUCCESS") {
-          console.log("POR FIN SUCCESS");
-          window.location.href = "./dashboard.php";
+          Swal.fire({
+            title: "Bienvenido"+"\n" +data.nombre+"!",
+            text: "Login exitoso.",
+            icon: "success"
+          }).then(() => {
+            window.location.href = "./dashboard.php";
+          });
         } else if (data.resultado == "ERROR") {
-          console.log("MALDITO ERROR");
-          console.log(data.mensaje);
+          Swal.fire({
+            title: "Error!",
+            text: "Login no exitoso."+"\n"+data.mensaje+"!",
+            icon: "error",
+          });
         }
       },
     });
