@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
-$conn = mysqli_connect($dbServer, $dbUsername, $dbPassword, $dbName);
-if (!$conn) {
+$conexion = mysqli_connect($dbServer, $dbUsername, $dbPassword, $dbName);
+if (!$conexion) {
     die("Conexión fallida: " . mysqli_connect_error());
 }
 ?>

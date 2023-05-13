@@ -15,6 +15,9 @@
     <link rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <link rel="stylesheet" href="sweetalert2.min.css">
+      <script src="sweetalert2.all.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-white  navbar-expand-md ">
@@ -27,7 +30,7 @@
         </div>
     </nav>
     <section class="pb-5 pt-5">
-  <div class="container">
+  <div class="container" id="container">
     <h1 class="text-center fw-bold">Ingresar a Super Alitas</h1>
     <div class="row">
       <form id="login-form">
@@ -37,14 +40,14 @@
               <span class="input-group-text" id="basic-addon1"><i
                 class="fa fa-envelope"></i></span><input type="text" id="txtcorreo"
                 class="form-control" placeholder="Correo" name="txtcorreo"
-                aria-label="Correo" aria-describedby="basic-addon1">
+                aria-label="Correo" aria-describedby="basic-addon1"></input>
             </div>
           </div>
           <div class="input-group input-lg mt-4">
             <span class="input-group-text" id="basic-addon2"><i
               class="fa fa-lock"></i></span><input type="password" id="txtpassword"
               class="form-control" name="password" placeholder="Password"
-              aria-describedby="basic-addon2">
+              aria-describedby="basic-addon2"></input>
           </div>
           <div class="send-button mt-5">
             <button type="submit" id="login-btn" class="btn btn-primary btn-round w-100 shadow btn-lg mt-3">Entrar</button>
@@ -53,6 +56,7 @@
       </form>
     </div>
   </div>
+  <div id="error"></div> 
 </section>
 
     <section class="fixed-bottom">
