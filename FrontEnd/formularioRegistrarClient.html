@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrap 5 generator example page</title>
+  <title>Registrar Reservacion</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,10 +36,10 @@
             <a class="nav-link btn btn-warning" href="#">Principal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-warning" href="#">menu</a>
+            <a class="nav-link btn btn-warning" href="#">Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-warning" href="#">domicilios</a>
+            <a class="nav-link btn btn-warning" href="#">Domicilios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-warning" href="#">Contactanos</a>
@@ -49,7 +49,7 @@
       <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1 pr-md-0">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="btn btn-warning ms-md-3" href="#">cerrar sesion</a>
+            <a class="btn btn-warning ms-md-3" href="#">Cerrar Sesion</a>
           </li>
         </ul>
       </div>
@@ -66,9 +66,9 @@
 
 
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">seleciona una mesa</label>
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar</option>
+                <label class="input-group-text" for="inputGroupSelect01">Seleciona una mesa</label>
+                <select class="form-select" id="mesa">
+                  <option selected>Opciones</option>
                   <option value="1">uno</option>
                   <option value="2">dos</option>
                   <option value="3">tres</option>
@@ -76,7 +76,7 @@
               </div>
 
               <div class="input-group mb-3">
-                <label for="input-group" class="col-sm-2 col-form-label">fecha</label>
+                <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
                 <div class="col-sm-10">
                   <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fecha">
                 </div>
@@ -91,7 +91,7 @@
 
               <div class="input-group mb-3">
                 <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">comentario</label>
-                <textarea class="form-control" id="ttx1" rows="1"></textarea>
+                <textarea class="form-control" id="txt" rows="4"></textarea>
               </div>
             </div>
 
@@ -99,12 +99,63 @@
             <div class="send-button mt-5">
               <button type="submit" class="btn btn-warning btn-round w-100 shadow  btn-lg mt-3">registrar</button>
             </div>
+
+          </div>
         </form>
       </div>
-
-    </div>
     </div>
   </section>
+
+  <section class="pb-5 pt-5">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="col-lg-6 text-center col-md-8 ms-auto me-auto">
+
+            <p><strong>tabla de reservaciones</strong></p>
+
+            <div class="input-group input-lg mt-4">
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">fecha</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Mostrar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>13/05/2023</td>
+                    <td>se necesitan 8 sillas</td>
+                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>14/05/2023</td>
+                    <td>se necesitan 4 sillas</td>
+                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
+                  </tr>
+                
+                </tbody>
+              </table>
+
+              
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
   <section class="">
     <footer class="pt-2 pb-2 ">
       <div class="container">
