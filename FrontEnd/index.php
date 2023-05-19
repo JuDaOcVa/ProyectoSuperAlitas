@@ -39,7 +39,10 @@
               <span class="input-group-text" id="basic-addon1"><i
                 class="fa fa-envelope"></i></span><input type="text" id="txtcorreo"
                 class="form-control" placeholder="Correo" name="txtcorreo"
-                aria-label="Correo" aria-describedby="basic-addon1"></input>
+                aria-label="Correo" aria-describedby="basic-addon1"required>
+                <div class="invalid-feedback">
+                coloca bien el correo
+                </div>
             </div>
           </div>
           <div class="input-group input-lg mt-4">
