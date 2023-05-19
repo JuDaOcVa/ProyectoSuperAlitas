@@ -7,8 +7,6 @@ switch ($funcion) {
   case $CONSTANTE_LOGIN:
     login();
     break;
-    case $CONSTANTE_REGISTRAR:
-      
   default:
     break;
 }
@@ -32,7 +30,7 @@ function login() {
       $_SESSION['telefono'] = $usuario['telefono'];
       $_SESSION['id_tipo_usuario'] = $usuario['id_tipo_usuario'];
       $_SESSION['estado'] = $usuario['estado'];
-      $response = array("resultado" => "SUCCESS", "nombre"=>$usuario['nombres']);
+      $response = array("resultado" => "SUCCESS", "nombre"=>$usuario['nombres'],"tipo_usuario"=>$usuario['id_tipo_usuario']);
     } else {
       $response = array("resultado" => "ERROR", "mensaje" => "Nombre de usuario o contraseña incorrectos");
     }

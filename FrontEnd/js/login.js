@@ -30,20 +30,37 @@ $(document).ready(function () {
           $("#login-btn").val("Connecting...");
         },
         success: function (data) {
-          if (data.resultado == "SUCCESS") {
-            Swal.fire({
-              title: "Bienvenido" + "\n" + data.nombre + "!",
-              text: "Login exitoso.",
-              icon: "success"
-            }).then(() => {
-              window.location.href = "./Menucliente.html";
-            });
-          } else if (data.resultado == "ERROR") {
-            Swal.fire({
-              title: "Error!",
-              text: "Login no exitoso." + "\n" + data.mensaje + "!",
-              icon: "error",
-            });
+          switch (data.resultado) {
+            case "SUCCESS":
+              switch (data.tipo_usuario) {
+                case "3":
+                  Swal.fire({
+                    title: "Bienvenido" + "\n" + data.nombre + "!",
+                    text: "Login exitoso.",
+                    icon: "success"
+                  }).then(() => {
+                    window.location.href = "./Menucliente.php";
+                  });
+                  break;
+                case "2" || "1":
+                  Swal.fire({
+                    title: "Bienvenido" + "\n" + data.nombre + "!",
+                    text: "Login exitoso.",
+                    icon: "success"
+                  }).then(() => {
+                    window.location.href = "./dashboard.php";
+                  });
+                  break;
+              }
+              default:
+              break;
+            case "ERROR":
+              Swal.fire({
+                title: "Error!",
+                text: "Login no exitoso." + "\n" + data.mensaje + "!",
+                icon: "error",
+              });
+              break;
           }
         },
       });
