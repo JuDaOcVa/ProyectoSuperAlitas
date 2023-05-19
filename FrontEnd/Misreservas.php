@@ -51,3 +51,47 @@
       </div>
     </div>
   </section>
+
+  <section class="pb-5 pt-5">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="col-lg-6 text-center col-md-8 ms-auto me-auto">
+
+            <p><strong>tabla de reservaciones</strong></p>
+
+            <div class="input-group input-lg mt-4">
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">fecha</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Mostrar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>13/05/2023</td>
+                    <td>se necesitan 8 sillas</td>
+                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>14/05/2023</td>
+                    <td>se necesitan 4 sillas</td>
+                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
+                  </tr>
+                
+                </tbody>
+              </table>
+
+              
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
