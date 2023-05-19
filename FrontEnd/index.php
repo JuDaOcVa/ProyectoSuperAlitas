@@ -39,16 +39,13 @@
               <span class="input-group-text" id="basic-addon1"><i
                 class="fa fa-envelope"></i></span><input type="text" id="txtcorreo"
                 class="form-control" placeholder="Correo" name="txtcorreo"
-                aria-label="Correo" aria-describedby="basic-addon1"required>
-                <div class="invalid-feedback">
-                coloca bien el correo
-                </div>
+                aria-label="Correo" aria-describedby="basic-addon1"></input>
             </div>
           </div>
           <div class="input-group input-lg mt-4">
             <span class="input-group-text" id="basic-addon2"><i
-              class="fa fa-lock"></i></span><input type="password" id="txtpassword"
-              class="form-control" name="password" placeholder="Password"
+              class="fa fa-lock"></i></span><input type="password" id="txtcontrasena"
+              class="form-control" name="contrasena" placeholder="Contraseña"
               aria-describedby="basic-addon2"></input>
           </div>
           <div class="send-button mt-5">

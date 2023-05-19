@@ -17,16 +17,20 @@ function login() {
   require_once 'conexionBd.php';
   global $conexion;
     $correo = $_POST['correo'];
-    $password = $_POST['password']; 
-    $query = "SELECT * FROM `usuarios` WHERE `correo` = '$correo' AND `password` = '$password'";
+    $contrasena = $_POST['contrasena']; 
+    $query = "SELECT * FROM `usuarios` WHERE `correo` = '$correo' AND `contrasena` = '$contrasena'";
     $result = mysqli_query($conexion, $query);
     if (mysqli_num_rows($result) == 1) {
       session_start();
       $usuario = mysqli_fetch_assoc($result);
       $_SESSION['id'] = $usuario['id'];
       $_SESSION['nombres'] = $usuario['nombres'];
+      $_SESSION['documento'] = $usuario['documento'];
       $_SESSION['correo'] = $usuario['correo'];
-      $_SESSION['password'] = $usuario['password'];
+      $_SESSION['contrasena'] = $usuario['contrasena'];
+      $_SESSION['fecha_nacimiento'] = $usuario['fecha_nacimiento'];
+      $_SESSION['telefono'] = $usuario['telefono'];
+      $_SESSION['id_tipo_usuario'] = $usuario['id_tipo_usuario'];
       $_SESSION['estado'] = $usuario['estado'];
       $response = array("resultado" => "SUCCESS", "nombre"=>$usuario['nombres']);
     } else {
