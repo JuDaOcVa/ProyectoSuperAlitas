@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2023 a las 06:22:46
+-- Tiempo de generación: 22-05-2023 a las 06:35:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -53,6 +53,14 @@ CREATE TABLE `mesas` (
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `mesas`
+--
+
+INSERT INTO `mesas` (`id`, `descripcion`, `ubicacion`, `estado`) VALUES
+(1, 'Mesa 1', 'Lado de Caja', 1),
+(2, 'Mesa 2', 'Al lado del estante', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +73,15 @@ CREATE TABLE `mesas_reserva` (
   `mesa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `mesas_reserva`
+--
+
+INSERT INTO `mesas_reserva` (`id`, `reserva`, `mesa`) VALUES
+(1, 11, 1),
+(2, 12, 1),
+(3, 13, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -74,12 +91,23 @@ CREATE TABLE `mesas_reserva` (
 CREATE TABLE `reserva` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `fecha_solicitud` datetime NOT NULL,
-  `fecha_reserva` datetime NOT NULL,
+  `fecha_solicitud` date NOT NULL,
+  `hora_solicitud` time NOT NULL,
+  `fecha_reserva` date NOT NULL,
+  `hora_reserva` time NOT NULL,
   `observaciones_usuario` varchar(60) NOT NULL,
   `costo_reserva` double NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reserva`
+--
+
+INSERT INTO `reserva` (`id`, `id_usuario`, `fecha_solicitud`, `hora_solicitud`, `fecha_reserva`, `hora_reserva`, `observaciones_usuario`, `costo_reserva`, `estado`) VALUES
+(11, 2, '2023-05-21', '22:33:17', '2023-05-22', '22:30:00', 'Prueba 1', 0, 1),
+(12, 2, '2023-05-21', '22:37:26', '2023-05-22', '23:40:00', 'Prueba 2', 0, 1),
+(13, 2, '2023-05-21', '22:38:40', '2023-05-22', '22:40:00', 'Prueba 3', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -187,19 +215,19 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT de la tabla `mesas`
 --
 ALTER TABLE `mesas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `mesas_reserva`
 --
 ALTER TABLE `mesas_reserva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`

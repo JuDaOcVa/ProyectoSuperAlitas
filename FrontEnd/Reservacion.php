@@ -3,45 +3,34 @@
       <div class="row">
         <form>
           <div class="col-lg-6 text-center col-md-8 ms-auto me-auto">
-            <p><strong>Registrar Mesa</strong></p>
+            <p><strong>Realizar Reservación</strong></p>
             <div class="input-group input-lg mt-4">
-
-
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Seleciona una mesa</label>
-                <select class="form-select" id="mesa">
-                  <option selected>Opciones</option>
-                  <option value="1">uno</option>
-                  <option value="2">dos</option>
-                  <option value="3">tres</option>
+                <label class="input-group-text" for="inputGroupSelect01">Selecciona una mesa</label>
+                <select class="form-select" id="mesaReserva">
+                <option value="-1" selected>Opciones</option>
                 </select>
               </div>
-
               <div class="input-group mb-3">
                 <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fecha">
+                  <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fechaReserva">
                 </div>
               </div>
               <div class="input-group mb-3">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Horario</label>
                 <div class="col-sm-10">
-                  <input type="time" class="form-control" placeholder="HH/MM/SS" id="hora">
+                  <input type="time" class="form-control" id="horaReserva">
                 </div>
               </div>
-
-
               <div class="input-group mb-3">
-                <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">comentario</label>
-                <textarea class="form-control" id="txt" rows="4"></textarea>
+                <label for="exampleFormControlTextarea1" class="col-sm-3 col-form-label">Observaciones</label>
+                <textarea class="form-control" id="observacionReserva" rows="4"></textarea>
               </div>
             </div>
-
-
             <div class="send-button mt-5">
-              <button type="submit" class="btn btn-warning btn-round w-100 shadow  btn-lg mt-3">registrar</button>
+              <button type="button" class="btn btn-warning btn-round w-100 shadow  btn-lg mt-3" id="btnReservar">Reservar</button>
             </div>
-
           </div>
         </form>
       </div>

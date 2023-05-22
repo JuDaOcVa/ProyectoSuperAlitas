@@ -8,6 +8,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.0/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.0/dist/sweetalert2.all.min.js"></script>
   <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,7 +20,7 @@
   <nav class="navbar navbar-light bg-white  navbar-expand-md ">
     <div class="container">
       <div class="col-2 pl-md-0 text-left">
-        <a href="#">
+        <a href="">
           <img src="imagenes/logo.jpg" height="50" alt="image">
         </a>
       </div>
@@ -28,24 +30,15 @@
       </button>
       <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
         <ul class="navbar-nav justify-content-center ">
-          <li class="nav-item active ">
-            <a class="nav-link  btn-warning" href="#">Principal</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link  btn-warning" href="">Menu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  btn-warning" href="#">Domicilios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn-warning" href="#">Contactanos</a>
+            <a class="nav-link  btn-warning" href="">Principal</a>
           </li>
         </ul>
       </div>
       <div class="collapse navbar-collapse justify-content-end col-md-2 navbar-collapse-1 pr-md-0">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="btn btn-warning ms-md-3" href="#">Cerrar Sesion</a>
+            <a class="btn btn-warning ms-md-3" id="cerrarSesion">Cerrar Sesion</a>
           </li>
         </ul>
       </div>
@@ -61,7 +54,7 @@
             <div class="card-body text-center">
               <h3 class="card-title">Reservaciones</h3>
               <p class="mt-1">
-                <a class="btn btn-warning" href="#" role="button" id="reservacionbtn" onclick="cambiarAReservaciones()">Ingresar</a>
+                <a class="btn btn-warning" role="button" id="reservacionbtn" onclick="cambiarAReservaciones()">Ingresar</a>
               </p>
             </div>
           </div>
@@ -74,7 +67,7 @@
               <h3 class="card-title">Mis Reservas</h3>
 
               <p class="mt-1">
-                <a class="btn btn-warning" href="#" role="button" id="misreservasbtn" onclick="cambiarAMisReservas()">Ingresar</a>
+                <a class="btn btn-warning" role="button" id="misreservasbtn" onclick="cambiarAMisReservas()">Ingresar</a>
 
               </p>
             </div>
