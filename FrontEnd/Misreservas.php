@@ -6,48 +6,30 @@
           <img src="imagenes/mesas.jpg" alt="" class="img-fluid mx-auto  d-block">
         </div>
         <div class="col-5">
-          <h1 class="mb-2 display-5 fw-bold">Reservacion #</h1>
-          <p class="lead"><strong> cambia o elimina tus reservaciones</strong> </p>
+        <form>
+          <h1 class="mb-2 display-5 fw-bold">Gestiona tus reservas aqui!</h1>
+          <p class="lead" style="visibility:collapse" id="reserva_label"><strong>Reservacion #</strong><strong id="id_reserva"></strong></p>
           <ol class="list-features lead list-l">
             <Li>
-              <label for="inputPassword" class="col-sm-2 col-form-label">Horario</label>
+            <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
               <div class="col-sm-10">
-                <input type="time" class="form-control" placeholder="HH/MM/SS" id="hora">
+                <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fecha_reserva">
               </div>
             </Li>
-
-
             <li>
-              <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label">Horario</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fecha">
+                <input type="time" class="form-control" placeholder="HH/MM/SS" id="hora_reserva">
               </div>
             </li>
             <li>
-              <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">comentario</label>
-              <textarea class="form-control" id="txt" rows="2"></textarea>
+              <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Observaciones</label>
+              <textarea class="form-control" id="observaciones_reserva" rows="2"></textarea>
             </li>
-
           </ol>
-          <table class="table div" class="formulario d-sm-none">
-            
-          </div>
-            <thead>
-              <tr>
-
-                <th scope="col">modificar</th>
-                <th scope="col">eliminar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-
-                <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">editar</a></td>
-                <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">eliminar</a></td>
-              </tr>
-            </tbody>
-            </table>
-        </div>
+          <td> <a class="btn btn-success ms-md-3">Guardar</a></td>
+          <td> <a class="btn btn-warning ms-md-3">Limpiar</a></td>
+          </form>
       </div>
     </div>
   </section>
@@ -57,38 +39,21 @@
       <div class="row">
         <form>
           <div class="col-lg-6 text-center col-md-8 ms-auto me-auto">
-
-            <p><strong>tabla de reservaciones</strong></p>
-
+            <p><strong>Mis Reservaciones</strong></p>
             <div class="input-group input-lg mt-4">
-
               <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">fecha</th>
-                    <th scope="col">Comentario</th>
-                    <th scope="col">Mostrar</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>13/05/2023</td>
-                    <td>se necesitan 8 sillas</td>
-                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>14/05/2023</td>
-                    <td>se necesitan 4 sillas</td>
-                    <td> <a class="btn btn-warning ms-md-3" href="Listaregistrarmesa.html">mostrar</a></td>
-                  </tr>
-                
                 </tbody>
               </table>
-
-              
             </div>
           </div>
         </form>

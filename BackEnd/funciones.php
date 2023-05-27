@@ -20,6 +20,12 @@ switch ($funcion) {
   case $CONSTANTE_CREAR_RESERVA:
     crearReserva();
     break;
+  case $CONSTANTE_CARGAR_RESERVAS_USUARIO:
+    cargarReservasUsuario();
+    break;
+  case $CONSTANTE_OBTENER_RESERVA_POR_ID:
+    obtenerReservaPorId();
+    break;
   default:
     break;
 }
@@ -52,12 +58,58 @@ function login()
   echo json_encode($response);
 }
 
+function obtenerReservaPorId()
+{
+  global $conexion;
+  $reservaId = $_POST['reservaId'];
+  $query = "SELECT * FROM reserva WHERE id =$reservaId";
+  $result = mysqli_query($conexion, $query);
+  $reservas = array();
+  if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      $reserva = array(
+        'id' => $row['id'],
+        'id_usuario' => $row['id_usuario'],
+        'fecha_reserva' => $row['fecha_reserva'],
+        'hora_reserva' => $row['hora_reserva'],
+        'observaciones_usuario' => $row['observaciones_usuario']
+      );
+      $reservas[] = $reserva;
+    }
+  }
+  echo json_encode($reservas);
+}
+
+function cargarReservasUsuario()
+{
+  require_once 'conexionBd.php';
+  global $conexion, $CONSTANTE_NUMERO_ESTADO_ACTIVO;
+  session_start();
+  $id_usuario = $_SESSION['id'];
+  $query = "SELECT * FROM reserva WHERE id_usuario =$id_usuario AND fecha_reserva >= CURDATE() AND estado=$CONSTANTE_NUMERO_ESTADO_ACTIVO";
+  $result = mysqli_query($conexion, $query);
+  $reservas = array();
+  if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      $reserva = array(
+        'id' => $row['id'],
+        'id_usuario' => $row['id_usuario'],
+        'fecha_reserva' => $row['fecha_reserva'],
+        'hora_reserva' => $row['hora_reserva'],
+        'observaciones_usuario' => $row['observaciones_usuario']
+      );
+      $reservas[] = $reserva;
+    }
+  }
+  echo json_encode($reservas);
+}
+
 function cargarMesasDisponibles()
 {
   require_once 'conexionBd.php';
-  global $conexion;
+  global $conexion, $CONSTANTE_NUMERO_ESTADO_ACTIVO;
   $fecha = $_POST['fecha'];
-  $query = "SELECT m.* FROM mesas m LEFT JOIN mesas_reserva mr ON m.id = mr.mesa AND mr.reserva IN (SELECT id FROM reserva WHERE fecha_reserva = '$fecha') WHERE mr.mesa IS NULL GROUP BY m.id";
+  $query = "SELECT m.* FROM mesas m LEFT JOIN mesas_reserva mr ON m.id = mr.mesa AND mr.reserva IN (SELECT id FROM reserva WHERE fecha_reserva = '$fecha' AND estado=$CONSTANTE_NUMERO_ESTADO_ACTIVO) WHERE mr.mesa IS NULL GROUP BY m.id";
   $result = mysqli_query($conexion, $query);
   $mesasDisponibles = array();
   if ($result) {

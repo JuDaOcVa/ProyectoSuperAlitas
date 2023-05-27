@@ -38,10 +38,43 @@ function cambiarAMisReservas() {
     .then((response) => response.text())
     .then((data) => {
       contenedor.innerHTML = data;
+      cargarReservasUsuario();
     })
     .catch((error) => {
       console.error("Error al cargar el contenido de Reservacion.php:", error);
     });
+}
+
+function cargarReservasUsuario() {
+  $.ajax({
+    url: "../BackEnd/funciones.php",
+    type: "POST",
+    data: { funcion: "cargarReservasUsuario" },
+    dataType: "json",
+    success: function (response) {
+      $.each(response, function (index, reserva) {
+        var fila = $("<tr>");
+        fila.append($("<th>").attr("scope", "row").text(reserva.id));
+        fila.append($("<td>").text(reserva.fecha_reserva));
+        var acciones = $("<td>");
+        var btnEditar = $("<a>")
+          .addClass("btn btn-warning ms-md-3 editar-reserva")
+          .attr("id", "editar-" + reserva.id)
+          .text("Editar");
+        var btnEliminar = $("<a>")
+          .addClass("btn btn-danger ms-md-3 eliminar-reserva")
+          .attr("id", "eliminar-" + reserva.id)
+          .text("Eliminar");
+        acciones.append(btnEditar, btnEliminar);
+        
+        fila.append(acciones);
+        $("tbody").append(fila);
+      });
+    },
+    error: function (error) {
+      console.error("Error al cargar las reservas de usuario:", error);
+    },
+  });
 }
 
 function cargarMesasDisponibles() {
@@ -49,14 +82,12 @@ function cargarMesasDisponibles() {
   if (fecha == "") {
     fecha = obtenerFechaActual();
   }
-  console.log("FECHA==>", fecha);
   $.ajax({
     url: "../BackEnd/funciones.php",
     type: "POST",
     data: { funcion: "cargarMesasDisponibles", fecha: fecha },
     dataType: "json",
     success: function (response) {
-      console.log(response);
       $("#mesaReserva").empty();
       $.each(response, function (index, mesa) {
         $("#mesaReserva").append(
@@ -123,7 +154,6 @@ $(document).on("click", "#btnReservar", function () {
       $("#horaReserva").css("border", "1px solid red");
     }
   } else {
-    console.log("SI ENTRA");
     $.ajax({
       url: "../BackEnd/funciones.php",
       method: "POST",
@@ -157,7 +187,7 @@ $(document).on("click", "#btnReservar", function () {
   }
 });
 
-$(document).on("focus", "#fechaReserva", function () {
+$(document).on("change", "#fechaReserva", function () {
   $(this).css("border", "1px solid #ccc");
 });
 
@@ -165,6 +195,42 @@ $(document).on("change", "#fechaReserva", function () {
   cargarMesasDisponibles();
 });
 
-$(document).on("focus", "#horaReserva", function () {
+$(document).on("change", "#horaReserva", function () {
   $(this).css("border", "1px solid #ccc");
 });
+
+$(document).on("click", ".editar-reserva", function() {
+  var reservaId = $(this).attr("id").split("-")[1];
+  console.log("EDITA con ID:" + reservaId);
+  $('#reserva_label').css("visibility", 'visible');
+  var reserva = obtenerReservaPorId(reservaId);
+  $("#id_reserva").html(reserva.id);
+  $("#fecha_reserva").val(reserva.fecha_reserva);
+  $("#hora_reserva").val(reserva.hora_reserva);
+  $("#observaciones_reserva").val(reserva.observaciones_usuario);
+});
+
+
+$(document).on("click", ".eliminar-reserva", function() {
+  var idReserva = $(this).attr("id").split("-")[1];
+  console.log("ELIMINA con ID:"+idReserva)
+});
+
+function obtenerReservaPorId(reservaId) {
+  var reserva;
+  $.ajax({
+    url: "../BackEnd/funciones.php",
+    type: "POST",
+    data: { funcion: "obtenerReservaPorId", reservaId: reservaId },
+    dataType: "json",
+    async: false,
+    success: function(response) {
+      reserva = response;
+    },
+    error: function(error) {
+      console.error("Error al obtener la reserva:", error);
+    }
+  });
+  return reserva;
+}
+
