@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 06:35:34
+-- Tiempo de generación: 27-05-2023 a las 16:40:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -80,7 +80,9 @@ CREATE TABLE `mesas_reserva` (
 INSERT INTO `mesas_reserva` (`id`, `reserva`, `mesa`) VALUES
 (1, 11, 1),
 (2, 12, 1),
-(3, 13, 1);
+(3, 13, 1),
+(4, 14, 1),
+(5, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,9 @@ CREATE TABLE `reserva` (
 INSERT INTO `reserva` (`id`, `id_usuario`, `fecha_solicitud`, `hora_solicitud`, `fecha_reserva`, `hora_reserva`, `observaciones_usuario`, `costo_reserva`, `estado`) VALUES
 (11, 2, '2023-05-21', '22:33:17', '2023-05-22', '22:30:00', 'Prueba 1', 0, 1),
 (12, 2, '2023-05-21', '22:37:26', '2023-05-22', '23:40:00', 'Prueba 2', 0, 1),
-(13, 2, '2023-05-21', '22:38:40', '2023-05-22', '22:40:00', 'Prueba 3', 0, 1);
+(13, 2, '2023-05-21', '22:38:40', '2023-05-22', '22:40:00', 'Prueba 3', 0, 1),
+(14, 2, '2023-05-26', '20:29:16', '2023-05-27', '20:30:00', 'Reserva actualizada', 0, 1),
+(15, 2, '2023-05-26', '22:46:00', '2023-05-29', '21:30:00', 'Reserva familiar', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -152,7 +156,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombres`, `documento`, `correo`, `contrasena`, `fecha_nacimiento`, `telefono`, `id_tipo_usuario`, `estado`) VALUES
-(2, 'Luis Alejandro Alvarez', '123456789', 'luisalejandro@gmail.com', '12345', '2001-05-10', '12345', 3, 1);
+(2, 'Luis Alejandro Alvarez', '123456789', 'luisalejandro@gmail.com', '12345', '2001-05-10', '12345', 3, 1),
+(3, 'Juan David Ocampo Valencia', '1006009546', 'juandavidocampo80@gmail.com', '12345', '2001-12-26', '3137784186', 3, 1);
 
 --
 -- Índices para tablas volcadas
@@ -221,13 +226,13 @@ ALTER TABLE `mesas`
 -- AUTO_INCREMENT de la tabla `mesas_reserva`
 --
 ALTER TABLE `mesas_reserva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
@@ -239,7 +244,7 @@ ALTER TABLE `tipo_usuario`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
