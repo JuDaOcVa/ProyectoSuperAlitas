@@ -57,7 +57,7 @@ function cargarMesasDisponibles()
   require_once 'conexionBd.php';
   global $conexion;
   $fecha = $_POST['fecha'];
-    $query = "SELECT m.* FROM `mesas` m LEFT JOIN `mesas_reserva` mr ON m.id = mr.mesa LEFT JOIN `reserva` r ON mr.reserva = r.id AND r.fecha_reserva = '$fecha' WHERE r.id IS NULL GROUP BY m.id";
+  $query = "SELECT m.* FROM mesas m LEFT JOIN mesas_reserva mr ON m.id = mr.mesa AND mr.reserva IN (SELECT id FROM reserva WHERE fecha_reserva = '$fecha') WHERE mr.mesa IS NULL GROUP BY m.id";
   $result = mysqli_query($conexion, $query);
   $mesasDisponibles = array();
   if ($result) {
@@ -109,11 +109,11 @@ function crearReserva()
   $mesa = $_POST['mesa'];
 
   $insert = "INSERT INTO `reserva` VALUES(null,'$id_usuario','$fecha_solicitud','$hora_solicitud','$fechaReserva','$horarioReserva','$observaciones','$costo','$estado')";
-  
+
   if (mysqli_query($conexion, $insert)) {
     $reservaId = mysqli_insert_id($conexion);
     $insert2 = "INSERT INTO `mesas_reserva` VALUES(null,'$reservaId','$mesa')";
-    
+
     if (mysqli_query($conexion, $insert2)) {
       $response = array("resultado" => "SUCCESS", "reservaId" => $reservaId);
     } else {
@@ -122,10 +122,7 @@ function crearReserva()
   } else {
     $response = array("resultado" => "ERROR", "mensaje" => "Error al crear la reserva");
   }
-  
+
   header('Content-Type: application/json');
   echo json_encode($response);
 }
-
-
-

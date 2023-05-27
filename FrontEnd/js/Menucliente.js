@@ -56,6 +56,7 @@ function cargarMesasDisponibles() {
     data: { funcion: "cargarMesasDisponibles", fecha: fecha },
     dataType: "json",
     success: function (response) {
+      console.log(response);
       $("#mesaReserva").empty();
       $.each(response, function (index, mesa) {
         $("#mesaReserva").append(
@@ -84,10 +85,6 @@ function obtenerHoraActual() {
   var second = String(today.getSeconds()).padStart(2, "0");
   return hour + ":" + minute + ":" + second;
 }
-
-$("#fechaReserva").on("change", function () {
-  cargarMesasDisponibles();
-});
 
 $("#cerrarSesion").click(function () {
   $.ajax({
@@ -163,9 +160,11 @@ $(document).on("click", "#btnReservar", function () {
 $(document).on("focus", "#fechaReserva", function () {
   $(this).css("border", "1px solid #ccc");
 });
+
 $(document).on("change", "#fechaReserva", function () {
   cargarMesasDisponibles();
 });
+
 $(document).on("focus", "#horaReserva", function () {
   $(this).css("border", "1px solid #ccc");
 });
