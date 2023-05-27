@@ -52,10 +52,14 @@ function cargarReservasUsuario() {
     data: { funcion: "cargarReservasUsuario" },
     dataType: "json",
     success: function (response) {
+      var tablaReservas = $("#tabla_reservas"); 
+      tablaReservas.find("tbody").empty();
       $.each(response, function (index, reserva) {
         var fila = $("<tr>");
         fila.append($("<th>").attr("scope", "row").text(reserva.id));
         fila.append($("<td>").text(reserva.fecha_reserva));
+        fila.append($("<td>").text(reserva.hora_reserva));
+        fila.append($("<td>").text(reserva.observaciones_usuario));
         var acciones = $("<td>");
         var btnEditar = $("<a>")
           .addClass("btn btn-warning ms-md-3 editar-reserva")
@@ -66,9 +70,8 @@ function cargarReservasUsuario() {
           .attr("id", "eliminar-" + reserva.id)
           .text("Eliminar");
         acciones.append(btnEditar, btnEliminar);
-        
         fila.append(acciones);
-        $("tbody").append(fila);
+        tablaReservas.find("tbody").append(fila);
       });
     },
     error: function (error) {
@@ -76,6 +79,7 @@ function cargarReservasUsuario() {
     },
   });
 }
+
 
 function cargarMesasDisponibles() {
   var fecha = $("#fechaReserva").val();
@@ -135,17 +139,6 @@ $(document).on("click", "#btnReservar", function () {
   var horarioReserva = $("#horaReserva").val();
   var mesa = $("#mesaReserva").val();
   var observaciones = $("#observacionReserva").val();
-  console.log(
-    fecha_solicitud,
-    " ",
-    hora_solicitud,
-    " ",
-    fechaReserva,
-    " ",
-    horarioReserva,
-    " ",
-    mesa
-  );
   if (fechaReserva == "" || horarioReserva == "") {
     if (fechaReserva == "") {
       $("#fechaReserva").css("border", "1px solid red");
@@ -200,37 +193,123 @@ $(document).on("change", "#horaReserva", function () {
 });
 
 $(document).on("click", ".editar-reserva", function() {
-  var reservaId = $(this).attr("id").split("-")[1];
-  console.log("EDITA con ID:" + reservaId);
   $('#reserva_label').css("visibility", 'visible');
-  var reserva = obtenerReservaPorId(reservaId);
-  $("#id_reserva").html(reserva.id);
-  $("#fecha_reserva").val(reserva.fecha_reserva);
-  $("#hora_reserva").val(reserva.hora_reserva);
-  $("#observaciones_reserva").val(reserva.observaciones_usuario);
+  var fila = $(this).closest("tr");
+  var idReserva = fila.find("th").text();
+  var fecha = fila.find("td:nth-child(2)").text();
+  var hora = fila.find("td:nth-child(3)").text();
+  var observaciones = fila.find("td:nth-child(4)").text();
+  $("#id_reserva").text(idReserva);
+  $("#fecha_reserva").val(fecha);
+  $("#hora_reserva").val(hora);
+  $("#observaciones_reserva").val(observaciones);
+});
+
+$(document).on("click", ".eliminar-reserva", function() {
+  var idReserva = $(this).attr("id").split("-")[1];
+  Swal.fire({
+    title: "¿Estás seguro que deseas eliminar la reserva?",
+    text: "Esta acción no se puede deshacer",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, eliminar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: "../BackEnd/funciones.php",
+        method: "POST",
+        data: {
+          funcion: "eliminarReserva",
+          id: idReserva,
+        },
+        success: function(data) {
+          if (data.resultado == "SUCCESS") {
+            Swal.fire({
+              title: "Reservación eliminada",
+              text: "La reservación ha sido eliminada correctamente",
+              icon: "success",
+            }).then(() => {
+              limpiarDatos();
+              cargarReservasUsuario();
+            });
+          } else if(data.resultado == "ERROR") {
+            Swal.fire({
+              title: "Error al eliminar reservación",
+              text: "Se produjo un error al eliminar la reservación",
+              icon: "error",
+            });
+          }
+        },
+        error: function(error) {
+          console.error("Error al eliminar la reservación:", error);
+          // Mostrar mensaje de error si ocurrió un error en la petición AJAX
+          Swal.fire({
+            title: "Error",
+            text: "Se produjo un error al eliminar la reservación",
+            icon: "error",
+          });
+        },
+      });
+    }
+  });
 });
 
 
 $(document).on("click", ".eliminar-reserva", function() {
   var idReserva = $(this).attr("id").split("-")[1];
-  console.log("ELIMINA con ID:"+idReserva)
 });
 
-function obtenerReservaPorId(reservaId) {
-  var reserva;
+$(document).on("click", "#limpiar_datos", limpiarDatos);
+
+function limpiarDatos() {
+  $('#reserva_label').css("visibility", 'collapse');
+  $("#id_reserva").text("");
+  $("#fecha_reserva").val("");
+  $("#hora_reserva").val("");
+  $("#observaciones_reserva").val("");
+}
+
+$(document).on("click", "#guardar_reserva", function() {
+  var id = $("#id_reserva").text();
+  var fecha = $("#fecha_reserva").val();
+  var hora = $("#hora_reserva").val();
+  var observaciones = $("#observaciones_reserva").val();
   $.ajax({
     url: "../BackEnd/funciones.php",
-    type: "POST",
-    data: { funcion: "obtenerReservaPorId", reservaId: reservaId },
-    dataType: "json",
-    async: false,
-    success: function(response) {
-      reserva = response;
+    method: "POST",
+    data: {
+      funcion: "actualizarReserva",
+      id: id,
+      fechaReserva: fecha,
+      horarioReserva: hora,
+      observaciones: observaciones,
     },
-    error: function(error) {
-      console.error("Error al obtener la reserva:", error);
-    }
+    success: function(data) {
+      if (data.resultado == "SUCCESS") {
+        Swal.fire({
+          title: "Reservacion con codigo: " + "\n" + data.reservaId + "!",
+          text: "Reserva Actualizada Exitosamente",
+          icon: "success",
+        }).then(() => {
+          limpiarDatos();
+          cargarReservasUsuario();
+        });
+      } else if (data.resultado == "ERROR") {
+        Swal.fire({
+          title: "Reservacion " + data.mensaje + " !",
+          text: "Se produjo un error actualizando la reserva",
+          icon: "error",
+        });
+      }
+    },
   });
-  return reserva;
-}
+});
+
+
+
+
+
 

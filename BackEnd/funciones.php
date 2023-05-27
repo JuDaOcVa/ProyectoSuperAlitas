@@ -23,9 +23,12 @@ switch ($funcion) {
   case $CONSTANTE_CARGAR_RESERVAS_USUARIO:
     cargarReservasUsuario();
     break;
-  case $CONSTANTE_OBTENER_RESERVA_POR_ID:
-    obtenerReservaPorId();
+  case $CONSTANTE_ACTUALIZAR_RESERVA:
+    actualizarReserva();
     break;
+    case $CONSTANTE_ELIMINAR_RESERVA:
+      eliminarReserva();
+      break;
   default:
     break;
 }
@@ -58,26 +61,40 @@ function login()
   echo json_encode($response);
 }
 
-function obtenerReservaPorId()
+function actualizarReserva()
 {
+  require_once 'conexionBd.php';
+  require_once 'config.php';
   global $conexion;
-  $reservaId = $_POST['reservaId'];
-  $query = "SELECT * FROM reserva WHERE id =$reservaId";
-  $result = mysqli_query($conexion, $query);
-  $reservas = array();
-  if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
-      $reserva = array(
-        'id' => $row['id'],
-        'id_usuario' => $row['id_usuario'],
-        'fecha_reserva' => $row['fecha_reserva'],
-        'hora_reserva' => $row['hora_reserva'],
-        'observaciones_usuario' => $row['observaciones_usuario']
-      );
-      $reservas[] = $reserva;
-    }
+
+  $reservaId = $_POST['id'];
+  $fechaReserva = $_POST['fechaReserva'];
+  $horarioReserva = $_POST['horarioReserva'];
+  $observaciones = $_POST['observaciones'];
+  $update = "UPDATE reserva SET fecha_reserva='$fechaReserva',hora_reserva='$horarioReserva',observaciones_usuario='$observaciones' WHERE id=$reservaId";
+  if (mysqli_query($conexion, $update)) {
+    $response = array("resultado" => "SUCCESS");
+  } else {
+    $response = array("resultado" => "ERROR", "mensaje" => "Error al actualizar la reserva");
   }
-  echo json_encode($reservas);
+  header('Content-Type: application/json');
+  echo json_encode($response);
+}
+
+function eliminarReserva()
+{
+  require_once 'conexionBd.php';
+  require_once 'config.php';
+  global $conexion,$CONSTANTE_NUMERO_ESTADO_INACTIVO;
+  $reservaId = $_POST['id'];
+  $update = "UPDATE reserva SET estado=$CONSTANTE_NUMERO_ESTADO_INACTIVO WHERE id=$reservaId";
+  if (mysqli_query($conexion, $update)) {
+    $response = array("resultado" => "SUCCESS", "reservaId" => $reservaId);
+  } else {
+    $response = array("resultado" => "ERROR", "mensaje" => "Error al actualizar la reserva");
+  }
+  header('Content-Type: application/json');
+  echo json_encode($response);
 }
 
 function cargarReservasUsuario()
