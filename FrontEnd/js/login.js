@@ -36,7 +36,7 @@ $(document).ready(function () {
                 case "3":
                   Swal.fire({
                     title: "Bienvenido" + "\n" + data.nombre + "!",
-                    text: "Login exitoso.",
+                    text: "Ingreso exitoso.",
                     icon: "success"
                   }).then(() => {
                     window.location.href = "./Menucliente.php";
@@ -45,7 +45,7 @@ $(document).ready(function () {
                 case "2" || "1":
                   Swal.fire({
                     title: "Bienvenido" + "\n" + data.nombre + "!",
-                    text: "Login exitoso.",
+                    text: "Ingreso exitoso.",
                     icon: "success"
                   }).then(() => {
                     window.location.href = "./dashboard.php";
@@ -57,7 +57,7 @@ $(document).ready(function () {
             case "ERROR":
               Swal.fire({
                 title: "Error!",
-                text: "Login no exitoso." + "\n" + data.mensaje + "!",
+                text: "Ingreso no exitoso." + "\n" + data.mensaje + "!",
                 icon: "error",
               });
               break;
