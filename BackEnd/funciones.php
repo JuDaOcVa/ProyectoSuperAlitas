@@ -73,7 +73,7 @@ function actualizarReserva()
   $observaciones = $_POST['observaciones'];
   $update = "UPDATE reserva SET fecha_reserva='$fechaReserva',hora_reserva='$horarioReserva',observaciones_usuario='$observaciones' WHERE id=$reservaId";
   if (mysqli_query($conexion, $update)) {
-    $response = array("resultado" => "SUCCESS");
+    $response = array("resultado" => "SUCCESS", "reservaId" =>$reservaId);
   } else {
     $response = array("resultado" => "ERROR", "mensaje" => "Error al actualizar la reserva");
   }
