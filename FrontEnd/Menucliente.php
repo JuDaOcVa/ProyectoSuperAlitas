@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse justify-content-center col-md-8 navbar-collapse-1">
         <ul class="navbar-nav justify-content-center ">
           <li class="nav-item">
-            <a class="nav-link  btn-warning" href="">Principal</a>
+            <a class="nav-link  btn-warning" href=""><strong>Principal</strong></a>
           </li>
         </ul>
       </div>

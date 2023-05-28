@@ -6,18 +6,19 @@
       </div>
       <div class="col-5">
         <form>
-          <h1 class="mb-2 display-5 fw-bold">Gestiona tus reservas aqui!</h1>
+          <h1 class="mb-2 display-8 text-center">Gestiona tus reservas aqui!</h1>
           <p class="lead" style="visibility:collapse" id="reserva_label"><strong>Reservacion #</strong><strong id="id_reserva"></strong></p>
           <ol class="list-features lead list-l">
             <Li>
-              <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
-              <div class="col-sm-10">
+              <label for="input-group" class="col-sm-3 col-form-label">Fecha</label>
+              
+              <div class="col-sm-12">
                 <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fecha_reserva">
               </div>
             </Li>
             <li>
               <label for="inputPassword" class="col-sm-2 col-form-label">Horario</label>
-              <div class="col-sm-10">
+              <div class="col-sm-12">
                 <input type="time" class="form-control" placeholder="HH/MM/SS" id="hora_reserva">
               </div>
             </li>
@@ -26,8 +27,10 @@
               <textarea class="form-control" id="observaciones_reserva" rows="2"></textarea>
             </li>
           </ol>
-          <td><a class="btn btn-success ms-md-3" id="guardar_reserva" disabled>Guardar</a></td>
-          <td><a class="btn btn-warning ms-md-3" id="limpiar_datos" disabled>Limpiar</a></td>
+          <div class="display-8 text-center">
+          <td><a class="btn btn-warning " id="guardar_reserva" disabled>Guardar</a></td>
+          <td><a class="btn btn-warning " id="limpiar_datos" disabled>Limpiar</a></td>
+          </div>
         </form>
       </div>
     </div>

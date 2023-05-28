@@ -3,28 +3,28 @@
       <div class="row">
         <form>
           <div class="col-lg-6 text-center col-md-8 ms-auto me-auto">
-            <p><strong>Realizar Reservación</strong></p>
-            <div class="input-group input-lg mt-4">
+            <p ><strong >Realizar Reservación</strong></p>
+            <div class="input-group input-lg mt-3">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Selecciona una mesa</label>
+                <label class="input-group-text col-sm-3 col-form-label" for="inputGroupSelect01">Selecciona una mesa</label>
                 <select class="form-select" id="mesaReserva">
                 <option value="-1" selected>Opciones</option>
                 </select>
               </div>
-              <div class="input-group mb-3">
-                <label for="input-group" class="col-sm-2 col-form-label">Fecha</label>
-                <div class="col-sm-10">
+              <div class="input-group input-lg mb-3">
+                <label for="input-group-text" class="col-sm-3 input-group-text">Fecha</label>
+                <div class="col-sm-9">
                   <input type="date" class="form-control" placeholder="DD/MM/AAAA" id="fechaReserva">
                 </div>
               </div>
               <div class="input-group mb-3">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Horario</label>
-                <div class="col-sm-10">
+                <label for="inputPassword" class="col-sm-3 input-group-text">Horario</label>
+                <div class="col-sm-9">
                   <input type="time" class="form-control" id="horaReserva">
                 </div>
               </div>
               <div class="input-group mb-3">
-                <label for="exampleFormControlTextarea1" class="col-sm-3 col-form-label">Observaciones</label>
+                <label for="exampleFormControlTextarea1" class="col-sm-3 input-group-text">Observaciones</label>
                 <textarea class="form-control" id="observacionReserva" rows="4"></textarea>
               </div>
             </div>

@@ -21,12 +21,11 @@
   <body>
     <nav class="navbar navbar-light bg-white  navbar-expand-md ">
       <div class="container">
-        <div class="col-2 pl-md-0 text-left">
-          <a href="#">
-            <img src=" https://dummyimage.com/102x30/007bff/ffffff?text=logo"
-              height="30" alt="image">
-          </a>
-        </div>
+      <div class="col-2 pl-md-0 text-left">
+        <a href="">
+          <img src="imagenes/logo.jpg" height="50" alt="image">
+        </a>
+      </div>
     </nav>
     <section class="pb-5 pt-5">
   <div class="container" id="container">
@@ -49,7 +48,7 @@
               aria-describedby="basic-addon2"></input>
           </div>
           <div class="send-button mt-5">
-            <button type="submit" id="login-btn" class="btn btn-primary btn-round w-100 shadow btn-lg mt-3">Entrar</button>
+            <button type="submit" id="login-btn" class="btn btn-warning btn-round w-100 shadow btn-lg mt-3">Entrar</button>
           </div>
         </div>
       </form>
@@ -58,40 +57,34 @@
   <div id="error"></div> 
 </section>
 
-    <section class="fixed-bottom">
-      <footer class="pt-4 pb-4 ">
-        <div class="container">
-          <div class="row text-center align-items-center">
-            <div class="col-12 col-sm-6 col-md-4 text-sm-start">
-              <img alt="image"
-                src=" https://dummyimage.com/102x40/007bff/ffffff?text=L O G O"
-                height="40">
-            </div>
-            <div
-              class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0 text-center text-sm-end text-md-center">
-              © 2013-2021 Bootstraptor
-            </div>
-            <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-end">
-              <a href="#">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-              </a>&nbsp;&nbsp;
-              <a href="#">
-                <i class="fab fa-facebook" aria-hidden="true"></i>
-              </a>&nbsp;&nbsp;
-              <a href="#">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-              </a>&nbsp;&nbsp;
-              <a href="#">
-                <i class="fab fa-pinterest" aria-hidden="true"></i>
-              </a>&nbsp;&nbsp;
-              <a href="#">
-                <i class="fab fa-google" aria-hidden="true"></i>
-              </a>
-            </div>
+<section class="fixed-bottom">
+    <footer class="pt-4 pb-4 ">
+      <div class="container">
+        <div class="row text-center align-items-center">
+          <div class="col-12 col-sm-6 col-md-4 text-sm-start">
+            <img alt="image" src="imagenes/logo.jpg" height="50">
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0 text-center text-sm-end text-md-center">
+            © 2023-2024
+          </div>
+          <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-end">
+            <a href="#">
+              <i class="fab fa-twitter btn-warning" aria-hidden="true"></i>
+            </a>&nbsp;&nbsp;
+            <a href="#">
+              <i class="fab fa-facebook btn-warning" aria-hidden="true"></i>
+            </a>&nbsp;&nbsp;
+            <a href="#">
+              <i class="fab fa-instagram btn-warning" aria-hidden="true"></i>
+            </a>&nbsp;&nbsp;
+
           </div>
         </div>
-      </footer>
-    </section>
+      </div>
+    </footer>
+  </section>
+
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
