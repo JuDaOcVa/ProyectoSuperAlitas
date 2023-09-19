@@ -46,11 +46,13 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.3.10</version> <!-- Use the appropriate version for your Spring version -->
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.26</version> <!-- Use the version that matches your MySQL server version -->
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.6.0</version>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

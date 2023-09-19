@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/superalitas
-    username: root
-    password:
+    url: jdbc:postgresql://localhost:5432/superalitas
+    username: postgres
+    password: admin
 
