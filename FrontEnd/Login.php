@@ -16,10 +16,62 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <link rel="stylesheet" href="sweetalert2.min.css">
+      <link rel="stylesheet" href="css/styleLogin.css">
       <script src="sweetalert2.all.min.js"></script>
+      <script src="js/login.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-white  navbar-expand-md ">
+  <div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form id="login-form">
+			<h1>Ingresar</h1>
+			<input type="text" id="txtcorreo"
+                class="form-control" placeholder="Correo" name="txtcorreo"
+                aria-label="Correo" aria-describedby="basic-addon1"></input>
+                <input type="password" id="txtcontrasena"
+              class="form-control" name="contrasena" placeholder="Contraseña"
+              aria-describedby="basic-addon2"></input>
+			<a href="#">Forgot your password?</a>
+      <button type="submit" id="login-btn" class="btn btn-warning btn-round w-100 shadow btn-lg mt-3">Entrar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>
+		<a target="_blank" href="https://superalitas.com">Super Alitas - 2023</a>
+	</p>
+</footer>
+  <!--  <nav class="navbar navbar-light bg-white  navbar-expand-md ">
       <div class="container">
       <div class="col-2 pl-md-0 text-left">
         <a href="">
@@ -83,9 +135,8 @@
       </div>
     </footer>
   </section>
-
-    
-    <script
+  
+--><script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"></script>

@@ -1,4 +1,13 @@
 $(document).ready(function () {
+const container = $("#container");
+
+$("#signUp").click(function (event) {
+  container.addClass("right-panel-active");
+});
+$("#signIn").click(function (event) {
+	container.removeClass("right-panel-active");
+});
+
   $("#login-btn").click(function (event) {
     event.preventDefault();
     var correo = $("#txtcorreo").val();
