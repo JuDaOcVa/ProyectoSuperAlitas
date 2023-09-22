@@ -38,8 +38,28 @@ public class UsuariosRepository {
     }
 
     public void setSesion(UsuarioDto usuarioDto) {
-        String updateQuery = "UPDATE usuarios set estado_sesion = ? where id = ?";
-        jdbc.update(updateQuery, usuarioDto.getEstado_sesion(), usuarioDto.getId());
+        try {
+            String updateQuery = "UPDATE usuarios set estado_sesion = ? where id = ?";
+            jdbc.update(updateQuery, usuarioDto.getEstado_sesion(), usuarioDto.getId());
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<UsuarioDto> consultarLoginPorId(int idUsuario) {
+        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbc.getDataSource());
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+
+        String consulta = " SELECT * FROM usuarios WHERE id = :idUsuario";
+
+        mapSqlParameterSource.addValue("idUsuario", idUsuario);
+
+        try {
+            UsuarioDto usuarioDto = namedParameterJdbcTemplate.queryForObject(consulta, mapSqlParameterSource, new BeanPropertyRowMapper<>(UsuarioDto.class));
+            return Optional.of(usuarioDto);
+        } catch (DataAccessException e) {
+            return Optional.empty();
+        }
     }
 
 }

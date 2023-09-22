@@ -28,8 +28,8 @@ public class ControllerUsuarios {
     }
 
     @PostMapping("/logout")
-    public void logout(@RequestParam("id") int idUsuario) {
+    public ResponseEntity<Boolean> logout(@RequestParam("id") int idUsuario) {
         log.info("[{}], A entrado al microservicio Logout", idUsuario);
-         usuariosServices.logout(idUsuario);
+        return ResponseEntity.ok().body(usuariosServices.logout(idUsuario));
     }
 }

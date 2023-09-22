@@ -36,11 +36,16 @@ public class UsuariosServicesImpl extends ResponseEntityExceptionHandler impleme
     }
 
     @Override
-    public void logout(int idUsuario) {
-//        Optional<UsuarioDto> usuarioDto = usuariosRepository.consultaLogin();
-//        if (!usuarioDto.isPresent()) {
-//            throw new ResponseStatusException(
-//                    HttpStatus.NOT_FOUND, "Usuario no encontrado");
-//        }
+    public Boolean logout(int idUsuario) {
+        Optional<UsuarioDto> usuarioDto = usuariosRepository.consultarLoginPorId(idUsuario);
+        if (!usuarioDto.isPresent()) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Usuario no encontrado");
+        }
+
+        usuarioDto.get().setEstado_sesion(Constantes.CONSTANTE_INACTIVO);
+        usuariosRepository.setSesion(usuarioDto.get());
+
+        return true;
     }
 }
